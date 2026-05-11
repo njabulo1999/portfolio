@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Njabulo Khumalo | IT Professional</title>
+    <title>Njabulo Khumalo | IT Support & Cybersecurity</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
+       
         :root {
             --primary: #3b82f6;
             --secondary: #1e40af;
@@ -16,47 +16,47 @@
             --dark: #1f2937;
             --light: #e1eefc;
         }
-        
+       
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
-        
+       
         .section {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        
+       
         .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+       
         .skill-bar {
             height: 8px;
             background-color: #e5e7eb;
             border-radius: 4px;
             overflow: hidden;
         }
-        
+       
         .skill-progress {
             height: 100%;
             border-radius: 4px;
             transition: width 1s ease-in-out;
             width: 0;
         }
-        
+       
         .floating {
             animation: floating 3s ease-in-out infinite;
         }
-        
+       
         @keyframes floating {
             0% { transform: translate(0, 0px); }
             50% { transform: translate(0, 10px); }
             100% { transform: translate(0, -0px); }
         }
-        
+       
         .typewriter {
             overflow: hidden;
             border-right: .15em solid var(--primary);
@@ -64,50 +64,32 @@
             margin: 0 auto;
             animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
         }
-        
+       
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
-        
+       
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: var(--primary); }
         }
-        
+       
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+       
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+       
         .tech-icon {
             transition: transform 0.3s ease;
         }
-        
+       
         .tech-icon:hover {
             transform: scale(1.2);
-        }
-
-        .cyber-pulse {
-            animation: cyber-pulse 2s infinite;
-        }
-
-        @keyframes cyber-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-        }
-
-        .glow {
-            text-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
-        }
-
-        .blinking-cursor {
-            animation: blink 1s infinite;
         }
     </style>
 </head>
@@ -134,15 +116,12 @@
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Njabulo Khumalo</h1>
-                <h2 class="text-xl md:text-2xl mb-6 typewriter">Cybersecurity Analyst & Full-Stack Developer</h2>
-                <p class="text-lg mb-8">Securing digital environments through ethical hacking, threat detection, and innovative technology solutions.</p>
-                <div class="flex space-x-4">
+                <h2 class="text-xl md:text-2xl mb-6 typewriter">IT Support Technician</h2>
+                <p class="text-lg mb-8">Hands-on IT professional with expertise in Windows provisioning, Microsoft Entra ID, cybersecurity, and end-user support.</p>
+                <div class="flex flex-wrap gap-4">
                     <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors">Contact Me</a>
-                    
-                    <a href="#cybersecurity" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors">View Cybersecurity Projects</a>
-                    <a href="assets/NN_CVA.pdf" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors" download class="download-btn">Download CV</a>
-
-
+                    <a href="#experience" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors">View Experience</a>
+                    <a href="assets/NN_CVA.pdf" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors" download>Download CV</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
@@ -168,7 +147,10 @@
                     </div>
                 </div>
                 <div class="md:w-2/3 md:pl-12">
-                    <p class="text-lg mb-6">I'm a dedicated Cybersecurity Analyst and IT professional with expertise in ethical hacking, threat detection, and full-stack development. Currently expanding my skills in cybersecurity through hands-on projects and internships while working in technology-driven roles.</p>
+                    <p class="text-lg mb-6">
+                        IT Support Technician with practical experience in Windows workstation deployment, Microsoft Entra ID management, user data migration, and end-user support. 
+                        Strong background in cybersecurity, network configuration, and technical troubleshooting from internships at eThekwini Municipality and ZA WIT.
+                    </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
@@ -203,176 +185,161 @@
     </section>
 
     <!-- Experience Section -->
-
-    
     <section id="experience" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Professional Experience</h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-8 card-hover border-l-4 border-blue-500">
+           
+            <div class="max-w-4xl mx-auto space-y-8">
+
+                <!-- eThekwini Municipality -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-500">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">ZA Wit</h3>
-                        <span class="text-gray-600 font-medium">September 2025 – Present</span>
+                        <h3 class="text-2xl font-bold text-blue-600">eThekwini Municipality</h3>
+                        <span class="text-gray-600 font-medium">February 2026 – Present</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-2">Cyber Security Analyst</h4>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <h4 class="text-xl font-semibold mb-4">IT Support Technician Intern</h4>
+                   
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-shield-alt text-green-500 mr-2"></i>
-                                Threat Detection & Ethical Hacking
+                                <i class="fas fa-desktop text-green-500 mr-2"></i>
+                                System Provisioning & Configuration
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Conducted vulnerability assessments using Nmap, Wireshark, and OpenVAS</li>
-                                <li>Simulated SQL injection, XSS, and DoS/DDoS attacks in controlled environments</li>
-                                <li>Explored wireless and mobile attack vectors using Kali Linux</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Provision and configure Windows workstations joined to government domain</li>
+                                <li>Deploy Microsoft 365 and role-specific applications</li>
+                                <li>Manage user accounts, password resets, and hostnames via Microsoft Entra ID</li>
                             </ul>
                         </div>
-                        
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
                                 <i class="fas fa-network-wired text-purple-500 mr-2"></i>
-                                Secure Network Design & Simulation
+                                Network & Hardware Support
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Designed multi-router topologies in Cisco Packet Tracer</li>
-                                <li>Implemented VLAN segmentation and access control lists</li>
-                                <li>Configured firewalls and intrusion detection systems</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Troubleshoot network, VPN, and printer connectivity issues</li>
+                                <li>Perform hardware assessments and repairs</li>
+                                <li>Provide remote and on-site field support</li>
                             </ul>
                         </div>
-                        
+                        <div>
+                            <h5 class="font-semibold text-lg mb-3 flex items-center">
+                                <i class="fas fa-ticket-alt text-yellow-500 mr-2"></i>
+                                Ticket Management
+                            </h5>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Manage incidents using CA Service Desk Manager</li>
+                                <li>Prioritize and escalate complex issues</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-lg mb-3 flex items-center">
+                                <i class="fas fa-database text-blue-500 mr-2"></i>
+                                User Data Management
+                            </h5>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Data migration, backup, and recovery operations</li>
+                                <li>Password recovery and MFA management via Entra ID</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZA WIT -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-indigo-500">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-2xl font-bold text-blue-600">ZA WIT</h3>
+                        <span class="text-gray-600 font-medium">September 2025 – February 2026</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Cybersecurity Technician Intern</h4>
+                   
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-lg mb-3 flex items-center">
+                                <i class="fas fa-shield-alt text-red-500 mr-2"></i>
+                                Threat Detection & Ethical Hacking
+                            </h5>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Vulnerability assessments with Nmap, Wireshark, OpenVAS</li>
+                                <li>Simulated attacks (SQLi, XSS, DoS/DDoS)</li>
+                                <li>Wireless & mobile security using Kali Linux</li>
+                            </ul>
+                        </div>
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
                                 <i class="fas fa-code text-yellow-500 mr-2"></i>
-                                Python Scripting & AI Integration
+                                Scripting & Automation
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Developed Python tools for network discovery and log parsing</li>
-                                <li>Prototyped AI-powered vulnerability detection systems</li>
-                                <li>Automated diagnostics with bash scripts and cron jobs</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Python scripts for network discovery and log parsing</li>
+                                <li>AI-powered vulnerability detection prototype</li>
+                                <li>Bash & PowerShell automation</li>
                             </ul>
                         </div>
-                        
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-file-contract text-blue-500 mr-2"></i>
-                                Governance & Compliance
+                                <i class="fas fa-network-wired text-purple-500 mr-2"></i>
+                                Secure Network Design
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Applied POPIA, ISO/IEC 27001, and NIST frameworks</li>
-                                <li>Drafted security documentation and risk assessments</li>
-                                <li>Participated in ethical hacking simulations</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Multi-router topologies, VLANs, ACLs, firewalls</li>
+                                <li>Active Directory and Office 365 management</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-lg mb-3 flex items-center">
+                                <i class="fas fa-file-alt text-blue-500 mr-2"></i>
+                                Incident Response
+                            </h5>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Root cause analysis and reporting</li>
+                                <li>Security log monitoring and threat mitigation</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <!-- Pandora Experience -->
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-8 card-hover">
+
+                <!-- Pandora Jewellery -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Pandora</h3>
-                        <span class="text-gray-600 font-medium">May 2024 - September 2025</span>
+                        <h3 class="text-2xl font-bold text-blue-600">Pandora Jewellery</h3>
+                        <span class="text-gray-600 font-medium">May 2024 – September 2025</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-2">Sales Associate / Administrative Assistant | 2IC</h4>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <h4 class="text-xl font-semibold mb-4">Sales Consultant / Administrative Assistant (2IC)</h4>
+                   
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-cash-register text-green-500 mr-2"></i>
-                                Cash Handling & Payment Processing
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Processed transactions using MPOS systems</li>
-                                <li>Performed cash counting and end-of-day reconciliations</li>
-                                <li>Issued refunds and resolved payment discrepancies</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-chart-line text-purple-500 mr-2"></i>
+                                <i class="fas fa-chart-bar text-purple-500 mr-2"></i>
                                 Data Analysis & Reporting
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Built interactive Power BI dashboards</li>
-                                <li>Automated Excel reports for sales trends</li>
-                                <li>Conducted market and competitor research</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Built interactive Power BI dashboards for sales KPIs</li>
+                                <li>Conducted market & competitor research</li>
+                                <li>Performed SQL operations</li>
                             </ul>
                         </div>
-                        
                         <div>
                             <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-boxes text-yellow-500 mr-2"></i>
+                                <i class="fas fa-barcode text-green-500 mr-2"></i>
                                 Inventory & Operations
                             </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Designed barcode inventory tracking system</li>
-                                <li>Coordinated stock movement across locations</li>
-                                <li>Maintained secure digital records</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-laptop-code text-blue-500 mr-2"></i>
-                                Technical Implementation
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Developed internal tools for automation</li>
-                                <li>Led technical troubleshooting</li>
-                                <li>Maintained and upgraded store systems</li>
+                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                <li>Developed barcode inventory tracking system (HTML, CSS, JS)</li>
+                                <li>Coordinated stock movement across stores</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Makro Experience -->
+
+                <!-- Makro -->
                 <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                         <h3 class="text-2xl font-bold text-blue-600">Makro</h3>
-                        <span class="text-gray-600 font-medium">December 2019 - January 2020</span>
+                        <span class="text-gray-600 font-medium">December 2019 – January 2020</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-2">Packer / Customer Service Representative</h4>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-users text-green-500 mr-2"></i>
-                                Customer Service
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Assisted shoppers locating products</li>
-                                <li>Supported elderly or disabled customers</li>
-                                <li>Directed customers during peak times</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-warehouse text-yellow-500 mr-2"></i>
-                                Inventory Management
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Returned items to correct shelf locations</li>
-                                <li>Assisted with stock rotation</li>
-                                <li>Restocked register areas</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-shipping-fast text-blue-500 mr-2"></i>
-                                Logistics & Safety
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>Packed customer purchases efficiently</li>
-                                <li>Maintained packing area cleanliness</li>
-                                <li>Reported equipment issues</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Packer / Customer Service Representative</h4>
+                    <p class="text-gray-600">Customer service, inventory management, and logistics support in a high-volume retail environment.</p>
                 </div>
             </div>
         </div>
@@ -382,145 +349,65 @@
     <section id="skills" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
-            
+           
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Technical Skills -->
                 <div class="bg-gray-50 rounded-xl p-6 shadow-md card-hover">
-                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">Development & Programming</h3>
+                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">IT Support & Infrastructure</h3>
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Full-Stack Web Development</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-blue-500" data-width="90"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Windows Workstation Provisioning</span><span>95%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="95"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Mobile App Development (Flutter)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-green-500" data-width="85"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Microsoft Entra ID (Azure AD)</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="90"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>C# & .NET Framework</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-purple-500" data-width="80"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Microsoft 365 Administration</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="90"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>SQL & Database Management</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-yellow-500" data-width="85"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Network & VPN Troubleshooting</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-green-500" data-width="85"></div></div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Business Intelligence -->
+
                 <div class="bg-gray-50 rounded-xl p-6 shadow-md card-hover">
-                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">Business Intelligence & Tools</h3>
+                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">Cybersecurity & Scripting</h3>
                     <div class="space-y-4">
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Power BI & Data Visualization</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-blue-500" data-width="90"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Kali Linux & Ethical Hacking</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-red-500" data-width="85"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Microsoft Excel & Analytics</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-green-500" data-width="95"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Nmap, Wireshark, OpenVAS</span><span>80%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-red-500" data-width="80"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Inventory Management Systems</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-purple-500" data-width="85"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Python & Bash Scripting</span><span>85%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-yellow-500" data-width="85"></div></div>
                         </div>
-                        
                         <div>
-                            <div class="flex justify-between mb-1">
-                                <span>Technical Troubleshooting</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress bg-yellow-500" data-width="90"></div>
-                            </div>
+                            <div class="flex justify-between mb-1"><span>Power BI & SQL</span><span>90%</span></div>
+                            <div class="skill-bar"><div class="skill-progress bg-purple-500" data-width="90"></div></div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Tech Icons -->
             <div class="mt-12 max-w-4xl mx-auto">
                 <h3 class="text-2xl font-bold text-center mb-8">Technologies & Tools</h3>
                 <div class="grid grid-cols-4 md:grid-cols-8 gap-6">
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
-                        <span class="text-sm">HTML5</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
-                        <span class="text-sm">CSS3</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
-                        <span class="text-sm">JavaScript</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-python text-4xl text-yellow-500 mb-2"></i>
-                        <span class="text-sm">Python</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-code text-4xl text-yellow-500 mb-2"></i>
-                        <span class="text-sm">C#</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
-                        <span class="text-sm">Node.js</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fas fa-database text-4xl text-blue-400 mb-2"></i>
-                        <span class="text-sm">SQL</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-microsoft text-4xl text-blue-600 mb-2"></i>
-                        <span class="text-sm">Power BI</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-github text-4xl text-orange-600 mb-2"></i>
-                        <span class="text-sm">Github</span>
-                    </div>
-                    <div class="flex flex-col items-center tech-icon">
-                        <i class="fab fa-microsoft text-4xl text-blue-400 mb-2"></i>
-                        <span class="text-sm">.NET</span>
-                    </div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-windows text-4xl text-blue-600 mb-2"></i><span class="text-sm">Windows</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-microsoft text-4xl text-blue-500 mb-2"></i><span class="text-sm">M365</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-shield-alt text-4xl text-red-500 mb-2"></i><span class="text-sm">Entra ID</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-python text-4xl text-yellow-500 mb-2"></i><span class="text-sm">Python</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-terminal text-4xl text-gray-700 mb-2"></i><span class="text-sm">Kali Linux</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-network-wired text-4xl text-purple-500 mb-2"></i><span class="text-sm">Networking</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i><span class="text-sm">HTML/CSS/JS</span></div>
+                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-database text-4xl text-blue-400 mb-2"></i><span class="text-sm">SQL</span></div>
                 </div>
             </div>
         </div>
@@ -530,26 +417,15 @@
     <section id="education" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
-            
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-white rounded-xl shadow-lg p-6 mb-8 card-hover">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Diploma in Information Technology (NQF6)</h3>
-                        
-                    </div>
-                    <h3 class="text-gray-600 font-large">Central University of Technology</h3>
-                    <br/>
-                    <p class="text-lg">Comprehensive IT education covering software development, database management, and systems analysis.</p>
-                </div>
-                
+           
+            <div class="max-w-3xl mx-auto space-y-6">
                 <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Matric Certificate</h3>
-                        
-                    </div>
-                    <h3 class="text-gray-600 font-large">Penryn College</h3>
-                    <br/>
-                    <p class="text-lg mb-4">Subjects included Mathematics, Physics, Information Technology, Life Science, English, and Afrikaans.</p>
+                    <h3 class="text-2xl font-bold text-blue-600">Diploma in Information Technology</h3>
+                    <p class="text-gray-600">Central University of Technology • 2024</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <h3 class="text-2xl font-bold text-blue-600">Matric Certificate</h3>
+                    <p class="text-gray-600">Penryn College</p>
                 </div>
             </div>
         </div>
@@ -559,12 +435,11 @@
     <section id="contact" class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-            
+           
             <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 text-gray-800">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
                         <h3 class="text-2xl font-bold mb-6 text-blue-600">Contact Information</h3>
-                        
                         <div class="space-y-4">
                             <div class="flex items-center">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
@@ -575,7 +450,6 @@
                                     <p>068 588 1450</p>
                                 </div>
                             </div>
-                            
                             <div class="flex items-center">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
                                     <i class="fas fa-envelope text-blue-600"></i>
@@ -585,7 +459,6 @@
                                     <p>njabulo199926@gmail.com</p>
                                 </div>
                             </div>
-                            
                             <div class="flex items-center">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
                                     <i class="fas fa-map-marker-alt text-blue-600"></i>
@@ -596,75 +469,27 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="mt-8">
-                            <h4 class="text-xl font-semibold mb-4">Connect With Me</h4>
-                            <div class="flex space-x-4">
-                                <a href="https://www.linkedin.com/in/njabulo-khumalo-191717225/" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://github.com/njabulo1999" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
-                    
+                   
                     <div>
                         <h3 class="text-2xl font-bold mb-6 text-blue-600">Send Me a Message</h3>
-<form id="contactForm" action="https://formspree.io/f/mjkpajrb" method="POST" class="space-y-4">
-  <div>
-    <label class="block text-gray-700 mb-2" for="name">Name</label>
-    <input type="text" id="name" name="name" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-  </div>
-
-  <div>
-    <label class="block text-gray-700 mb-2" for="email">Email</label>
-    <input type="email" id="email" name="email" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-  </div>
-
-  <div>
-    <label class="block text-gray-700 mb-2" for="subject">Subject</label>
-    <input type="text" id="subject" name="subject"
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-  </div>
-
-  <div>
-    <label class="block text-gray-700 mb-2" for="message">Message</label>
-    <textarea id="message" name="message" rows="4" required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-  </div>
-
-  <button type="submit"
-          class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-    Send Message
-  </button>
-</form>
-
-<!-- Popup Dialog -->
-<div id="popupDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm text-center">
-    <h3 class="text-xl font-semibold text-blue-600 mb-2"> Message Sent!</h3>
-    <p class="text-gray-700 mb-4">Thanks you for reaching out. I’ll get back to you as soon as possible.</p>
-    <button onclick="closePopup()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors">
-      Close
-    </button>
-  </div>
-</div>
-
-
-
+                        <form id="contactForm" action="https://formspree.io/f/mjkpajrb" method="POST" class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="name">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                                Send Message
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -674,88 +499,55 @@
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4 text-center">
-            <p>&copy; 1999 Njabulo Khumalo. All Rights Reserved.</p>
-            <p class="mt-2 text-gray-400">Designed with passion for technology and innovation.</p>
+            <p>&copy; 2026 Njabulo Khumalo. All Rights Reserved.</p>
+            <p class="mt-2 text-gray-400">IT Support • Cybersecurity • Technical Excellence</p>
         </div>
     </footer>
 
     <script>
-        // Initialize all sections as visible on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Make all sections visible immediately
             document.querySelectorAll('section').forEach(section => {
                 section.classList.add('visible');
             });
-            
-            // Initialize skill bars
+           
             const skillBars = document.querySelectorAll('.skill-progress');
             skillBars.forEach(bar => {
                 const width = bar.getAttribute('data-width');
-                setTimeout(() => {
-                    bar.style.width = width + '%';
-                }, 500);
+                setTimeout(() => bar.style.width = width + '%', 500);
             });
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#') return;
                 e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             });
         });
 
-        // Mobile menu toggle (placeholder functionality)
-        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
-            alert('Mobile menu would open here. In a real implementation, this would toggle a menu.');
+        // Form handling
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    form.reset();
+                    alert("Thank you! Your message has been sent.");
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection.");
+            }
         });
-
-
-  const successMessage = document.getElementById('successMessage');
-
-  const form = document.getElementById('contactForm');
-  const popup = document.getElementById('popupDialog');
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        form.reset();
-        popup.classList.remove('hidden');
-      } else {
-        alert('Oops! Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      alert('Network error. Please check your connection.');
-    }
-  });
-
-  function closePopup() {
-    popup.classList.add('hidden');
-  }
-
-
-
     </script>
 </body>
 </html>
