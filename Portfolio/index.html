@@ -5,178 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Njabulo Khumalo | IT Support & Cybersecurity</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-       
         :root {
-            --primary: #3b82f6;
-            --secondary: #1e40af;
-            --accent: #b9c509;
-            --dark: #1f2937;
-            --light: #e1eefc;
+            --yellow: #FACC15;
+            --yellow-dark: #EAB308;
+            --black: #0a0a0a;
+            --dark: #111111;
+            --card: #1a1a1a;
         }
-       
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: #e5e5e5;
+            overflow-x: hidden;
         }
-       
-        .section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
+
+        /* 3D Card effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+            perspective: 1000px;
         }
-       
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .card-3d:hover {
+            transform: translateY(-12px) rotateX(6deg) rotateY(-4deg);
+            box-shadow: 0 25px 50px -12px rgba(250, 204, 21, 0.25);
         }
-       
+
+        /* Floating animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(2deg); }
+        }
+
+        /* Glowing yellow border */
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, var(--yellow), transparent, var(--yellow));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(8px);
+        }
+
+        /* Skill bar */
         .skill-bar {
             height: 8px;
-            background-color: #e5e7eb;
+            background: #333;
             border-radius: 4px;
             overflow: hidden;
         }
-       
-        .skill-progress {
+        .skill-fill {
             height: 100%;
+            background: linear-gradient(90deg, var(--yellow-dark), var(--yellow));
             border-radius: 4px;
-            transition: width 1s ease-in-out;
             width: 0;
+            transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
-       
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+
+        /* Navigation */
+        nav {
+            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(250, 204, 21, 0.15);
         }
-       
-        @keyframes floating {
-            0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, 10px); }
-            100% { transform: translate(0, -0px); }
+
+        /* Hero gradient */
+        .hero-bg {
+            background: radial-gradient(ellipse at top, #1a1a00 0%, #0a0a0a 60%);
         }
-       
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid var(--primary);
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+
+        /* 3D Cube */
+        .cube-container {
+            width: 180px;
+            height: 180px;
+            perspective: 800px;
         }
-       
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 18s infinite linear;
         }
-       
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
+        .cube-face {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(250, 204, 21, 0.08);
+            border: 2px solid rgba(250, 204, 21, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--yellow);
+            backdrop-filter: blur(4px);
         }
-       
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .cube-face.front  { transform: translateZ(90px); }
+        .cube-face.back   { transform: rotateY(180deg) translateZ(90px); }
+        .cube-face.right  { transform: rotateY(90deg) translateZ(90px); }
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(90px); }
+        .cube-face.top    { transform: rotateX(90deg) translateZ(90px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(90px); }
+
+        @keyframes rotateCube {
+            from { transform: rotateX(0) rotateY(0); }
+            to   { transform: rotateX(360deg) rotateY(360deg); }
         }
-       
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        /* Section title underline */
+        .section-title {
+            position: relative;
+            display: inline-block;
         }
-       
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--yellow);
+            border-radius: 2px;
+        }
+
+        /* Timeline line */
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--yellow), transparent);
+        }
+
+        /* Button */
+        .btn-yellow {
+            background: var(--yellow);
+            color: #000;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-yellow:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: var(--yellow);
+            color: #000;
+        }
+
+        /* Tech icon hover */
         .tech-icon {
+            transition: all 0.3s ease;
+        }
+        .tech-icon:hover {
+            transform: translateY(-8px) scale(1.15);
+            color: var(--yellow);
+        }
+
+        /* Mobile menu */
+        #mobileMenu {
+            transform: translateX(100%);
             transition: transform 0.3s ease;
         }
-       
-        .tech-icon:hover {
-            transform: scale(1.2);
+        #mobileMenu.open {
+            transform: translateX(0);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-blue-600">Njabulo Khumalo</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
-                <a href="#education" class="hover:text-blue-600 transition-colors">Education</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+    <nav class="fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-orbitron font-bold text-yellow-400 tracking-wider">
+                NJABULO<span class="text-white">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-yellow-400 transition">About</a>
+                <a href="#experience" class="hover:text-yellow-400 transition">Experience</a>
+                <a href="#skills" class="hover:text-yellow-400 transition">Skills</a>
+                <a href="#education" class="hover:text-yellow-400 transition">Education</a>
+                <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
             </div>
-            <button class="md:hidden text-blue-600">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="menuBtn" class="md:hidden text-yellow-400 text-2xl">
+                <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-y-0 right-0 w-64 bg-black border-l border-yellow-500/30 z-50 p-8 flex flex-col space-y-6 md:hidden">
+        <button id="closeMenu" class="self-end text-yellow-400 text-2xl"><i class="fas fa-times"></i></button>
+        <a href="#about" class="text-lg hover:text-yellow-400">About</a>
+        <a href="#experience" class="text-lg hover:text-yellow-400">Experience</a>
+        <a href="#skills" class="text-lg hover:text-yellow-400">Skills</a>
+        <a href="#education" class="text-lg hover:text-yellow-400">Education</a>
+        <a href="#contact" class="text-lg hover:text-yellow-400">Contact</a>
+    </div>
+
     <!-- Hero Section -->
-    <section id="hero" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Njabulo Khumalo</h1>
-                <h2 class="text-xl md:text-2xl mb-6 typewriter">IT Support Technician</h2>
-                <p class="text-lg mb-8">Hands-on IT professional with expertise in Windows provisioning, Microsoft Entra ID, cybersecurity, and end-user support.</p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors">Contact Me</a>
-                    <a href="#experience" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors">View Experience</a>
-                    <a href="assets/NN_CVA.pdf" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors" download>Download CV</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 bg-blue-500 rounded-full overflow-hidden shadow-2xl floating">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-white text-6xl md:text-8xl"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg">
-                        <div class="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
-                            <span class="text-white text-6xl">NK</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <p class="text-lg mb-6">
-                        IT Support Technician with practical experience in Windows workstation deployment, Microsoft Entra ID management, user data migration, and end-user support. 
-                        Strong background in cybersecurity, network configuration, and technical troubleshooting from internships at eThekwini Municipality and ZA WIT.
+    <section class="hero-bg min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
+        <!-- Decorative grid -->
+        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#FACC15 1px, transparent 1px), linear-gradient(90deg, #FACC15 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <p class="text-yellow-400 font-medium tracking-widest uppercase mb-4 text-sm">IT Support • Cybersecurity</p>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-orbitron font-bold leading-tight mb-6">
+                        Njabulo<br>
+                        <span class="text-yellow-400">Khumalo</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-lg mx-auto lg:mx-0">
+                        Hands-on IT professional specializing in Windows provisioning, Microsoft Entra ID, network troubleshooting, and cybersecurity operations.
                     </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-blue-500 mr-2"></i>
-                            <span>South Africa</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-blue-500 mr-2"></i>
-                            <span>njabulo199926@gmail.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-blue-500 mr-2"></i>
-                            <span>068 588 1450</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-car text-blue-500 mr-2"></i>
-                            <span>Driver's License: Code B</span>
-                        </div>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="btn-yellow px-8 py-3 rounded-full">Get In Touch</a>
+                        <a href="#experience" class="btn-outline px-8 py-3 rounded-full">View Experience</a>
                     </div>
-                    <div class="mt-6">
-                        <h3 class="text-xl font-semibold mb-3">Languages</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">English</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Zulu</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Sesotho</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Afrikaans</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Xhosa</span>
+                </div>
+
+                <!-- 3D Cube -->
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="cube-container float">
+                        <div class="cube">
+                            <div class="cube-face front"><i class="fas fa-laptop-code"></i></div>
+                            <div class="cube-face back"><i class="fas fa-shield-alt"></i></div>
+                            <div class="cube-face right"><i class="fas fa-network-wired"></i></div>
+                            <div class="cube-face left"><i class="fab fa-windows"></i></div>
+                            <div class="cube-face top"><i class="fas fa-server"></i></div>
+                            <div class="cube-face bottom"><i class="fas fa-terminal"></i></div>
                         </div>
                     </div>
                 </div>
@@ -184,368 +270,386 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Professional Experience</h2>
-           
-            <div class="max-w-4xl mx-auto space-y-8">
-
-                <!-- eThekwini Municipality -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-blue-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">eThekwini Municipality</h3>
-                        <span class="text-gray-600 font-medium">February 2026 – Present</span>
+    <!-- About -->
+    <section id="about" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-title">About Me</h2>
+            
+            <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-10 items-center">
+                <!-- Avatar -->
+                <div class="md:col-span-2 flex justify-center">
+                    <div class="w-56 h-56 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-yellow-600/5 border border-yellow-500/40 flex items-center justify-center relative glow-border">
+                        <span class="text-7xl font-orbitron font-bold text-yellow-400">NK</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4">IT Support Technician Intern</h4>
-                   
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-desktop text-green-500 mr-2"></i>
-                                System Provisioning & Configuration
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Provision and configure Windows workstations joined to government domain</li>
-                                <li>Deploy Microsoft 365 and role-specific applications</li>
-                                <li>Manage user accounts, password resets, and hostnames via Microsoft Entra ID</li>
-                            </ul>
+                </div>
+
+                <!-- Content -->
+                <div class="md:col-span-3">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        IT Support Technician with practical experience in Windows workstation deployment, Microsoft Entra ID management, user data migration, and end-user support. Strong background in cybersecurity, network configuration, and technical troubleshooting gained through internships at <span class="text-yellow-400">eThekwini Municipality</span> and <span class="text-yellow-400">ZA WIT</span>.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-5 mb-8">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-yellow-400"></i>
+                            <span class="text-sm">njabulo199926@gmail.com</span>
                         </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-network-wired text-purple-500 mr-2"></i>
-                                Network & Hardware Support
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Troubleshoot network, VPN, and printer connectivity issues</li>
-                                <li>Perform hardware assessments and repairs</li>
-                                <li>Provide remote and on-site field support</li>
-                            </ul>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-yellow-400"></i>
+                            <span class="text-sm">068 588 1450</span>
                         </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-ticket-alt text-yellow-500 mr-2"></i>
-                                Ticket Management
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Manage incidents using CA Service Desk Manager</li>
-                                <li>Prioritize and escalate complex issues</li>
-                            </ul>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-yellow-400"></i>
+                            <span class="text-sm">South Africa</span>
                         </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-database text-blue-500 mr-2"></i>
-                                User Data Management
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Data migration, backup, and recovery operations</li>
-                                <li>Password recovery and MFA management via Entra ID</li>
-                            </ul>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-id-card text-yellow-400"></i>
+                            <span class="text-sm">Code B License</span>
                         </div>
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-gray-500 mb-3 uppercase tracking-wider">Languages</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">English</span>
+                            <span class="px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">Zulu</span>
+                            <span class="px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">Sesotho</span>
+                            <span class="px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">Afrikaans</span>
+                            <span class="px-4 py-1.5 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-sm text-yellow-400">Xhosa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-24 bg-[#0d0d0d]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-title">Experience</h2>
+
+            <div class="max-w-4xl mx-auto space-y-10">
+                <!-- eThekwini -->
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-yellow-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-yellow-400">eThekwini Municipality</h3>
+                            <p class="text-lg font-medium mt-1">IT Support Technician Intern</p>
+                        </div>
+                        <span class="text-sm text-gray-400 mt-2 md:mt-0 bg-black/50 px-4 py-1 rounded-full">Feb 2026 – Present</span>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Provision & configure Windows workstations on government domain</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Manage accounts, password resets & hostnames via Microsoft Entra ID</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Handle tickets with CA Service Desk Manager</li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Hardware installation, repairs & peripheral support</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Network, VPN, printer & Wi-Fi troubleshooting</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Data migration, backup & recovery operations</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- ZA WIT -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover border-l-4 border-indigo-500">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">ZA WIT</h3>
-                        <span class="text-gray-600 font-medium">September 2025 – February 2026</span>
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-yellow-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-yellow-400">ZA WIT</h3>
+                            <p class="text-lg font-medium mt-1">Cybersecurity Analyst Intern</p>
+                        </div>
+                        <span class="text-sm text-gray-400 mt-2 md:mt-0 bg-black/50 px-4 py-1 rounded-full">Sep 2025 – Feb 2026</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4">Cybersecurity Technician Intern</h4>
-                   
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-shield-alt text-red-500 mr-2"></i>
-                                Threat Detection & Ethical Hacking
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Vulnerability assessments with Nmap, Wireshark, OpenVAS</li>
-                                <li>Simulated attacks (SQLi, XSS, DoS/DDoS)</li>
-                                <li>Wireless & mobile security using Kali Linux</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-code text-yellow-500 mr-2"></i>
-                                Scripting & Automation
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Python scripts for network discovery and log parsing</li>
-                                <li>AI-powered vulnerability detection prototype</li>
-                                <li>Bash & PowerShell automation</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-network-wired text-purple-500 mr-2"></i>
-                                Secure Network Design
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Multi-router topologies, VLANs, ACLs, firewalls</li>
-                                <li>Active Directory and Office 365 management</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-file-alt text-blue-500 mr-2"></i>
-                                Incident Response
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Root cause analysis and reporting</li>
-                                <li>Security log monitoring and threat mitigation</li>
-                            </ul>
-                        </div>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Vulnerability assessments with Nmap, Wireshark & OpenVAS</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Configured VLANs, ACLs, firewalls & multi-router topologies</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Python scripts for network discovery & log parsing</li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> AI-powered vulnerability detection prototype</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Incident response, root cause analysis & reporting</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Active Directory & Office 365 management</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Pandora Jewellery -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Pandora Jewellery</h3>
-                        <span class="text-gray-600 font-medium">May 2024 – September 2025</span>
+                <!-- Pandora -->
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-yellow-400"></div>
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-yellow-400">Pandora</h3>
+                            <p class="text-lg font-medium mt-1">Sales / Administrative Associate</p>
+                        </div>
+                        <span class="text-sm text-gray-400 mt-2 md:mt-0 bg-black/50 px-4 py-1 rounded-full">May 2024 – Sep 2025</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4">Sales Consultant / Administrative Assistant (2IC)</h4>
-                   
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-chart-bar text-purple-500 mr-2"></i>
-                                Data Analysis & Reporting
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Built interactive Power BI dashboards for sales KPIs</li>
-                                <li>Conducted market & competitor research</li>
-                                <li>Performed SQL operations</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5 class="font-semibold text-lg mb-3 flex items-center">
-                                <i class="fas fa-barcode text-green-500 mr-2"></i>
-                                Inventory & Operations
-                            </h5>
-                            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                                <li>Developed barcode inventory tracking system (HTML, CSS, JS)</li>
-                                <li>Coordinated stock movement across stores</li>
-                            </ul>
-                        </div>
+                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Built interactive Power BI dashboards for sales KPIs</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Developed barcode inventory system (HTML/CSS/JS)</li>
+                        </ul>
+                        <ul class="space-y-2">
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Stock coordination & logistics across locations</li>
+                            <li class="flex gap-2"><span class="text-yellow-400">▹</span> Customer service & payment processing</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- Makro -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-2xl font-bold text-blue-600">Makro</h3>
-                        <span class="text-gray-600 font-medium">December 2019 – January 2020</span>
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-6 border border-yellow-500/10">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div>
+                            <h3 class="text-xl font-bold text-yellow-400">Makro</h3>
+                            <p class="text-gray-400">Customer Service Representative</p>
+                        </div>
+                        <span class="text-sm text-gray-500 mt-2 md:mt-0">Dec 2019 – Jan 2020</span>
                     </div>
-                    <h4 class="text-xl font-semibold mb-4">Packer / Customer Service Representative</h4>
-                    <p class="text-gray-600">Customer service, inventory management, and logistics support in a high-volume retail environment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Technical Skills</h2>
-           
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-gray-50 rounded-xl p-6 shadow-md card-hover">
-                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">IT Support & Infrastructure</h3>
-                    <div class="space-y-4">
+    <!-- Skills -->
+    <section id="skills" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-title">Technical Skills</h2>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+                <!-- IT Support -->
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-8 flex items-center gap-3">
+                        <i class="fas fa-desktop"></i> IT Support & Infrastructure
+                    </h3>
+                    <div class="space-y-6">
                         <div>
-                            <div class="flex justify-between mb-1"><span>Windows Workstation Provisioning</span><span>95%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="95"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Windows Provisioning</span><span class="text-yellow-400">95%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Microsoft Entra ID (Azure AD)</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="90"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Microsoft Entra ID</span><span class="text-yellow-400">90%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Microsoft 365 Administration</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-blue-500" data-width="90"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Microsoft 365 Admin</span><span class="text-yellow-400">90%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Network & VPN Troubleshooting</span><span>85%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-green-500" data-width="85"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Network & VPN Support</span><span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 rounded-xl p-6 shadow-md card-hover">
-                    <h3 class="text-xl font-bold mb-6 text-center text-blue-600">Cybersecurity & Scripting</h3>
-                    <div class="space-y-4">
+                <!-- Cybersecurity -->
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-8 flex items-center gap-3">
+                        <i class="fas fa-shield-alt"></i> Cybersecurity & Scripting
+                    </h3>
+                    <div class="space-y-6">
                         <div>
-                            <div class="flex justify-between mb-1"><span>Kali Linux & Ethical Hacking</span><span>85%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-red-500" data-width="85"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Kali Linux & Ethical Hacking</span><span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Nmap, Wireshark, OpenVAS</span><span>80%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-red-500" data-width="80"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Nmap / Wireshark / OpenVAS</span><span class="text-yellow-400">80%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Python & Bash Scripting</span><span>85%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-yellow-500" data-width="85"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Python & Bash Scripting</span><span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
                         </div>
                         <div>
-                            <div class="flex justify-between mb-1"><span>Power BI & SQL</span><span>90%</span></div>
-                            <div class="skill-bar"><div class="skill-progress bg-purple-500" data-width="90"></div></div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Power BI & SQL</span><span class="text-yellow-400">90%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Tech Icons -->
-            <div class="mt-12 max-w-4xl mx-auto">
-                <h3 class="text-2xl font-bold text-center mb-8">Technologies & Tools</h3>
-                <div class="grid grid-cols-4 md:grid-cols-8 gap-6">
-                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-windows text-4xl text-blue-600 mb-2"></i><span class="text-sm">Windows</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-microsoft text-4xl text-blue-500 mb-2"></i><span class="text-sm">M365</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-shield-alt text-4xl text-red-500 mb-2"></i><span class="text-sm">Entra ID</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-python text-4xl text-yellow-500 mb-2"></i><span class="text-sm">Python</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-terminal text-4xl text-gray-700 mb-2"></i><span class="text-sm">Kali Linux</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-network-wired text-4xl text-purple-500 mb-2"></i><span class="text-sm">Networking</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i><span class="text-sm">HTML/CSS/JS</span></div>
-                    <div class="flex flex-col items-center tech-icon"><i class="fas fa-database text-4xl text-blue-400 mb-2"></i><span class="text-sm">SQL</span></div>
+            <!-- Tech icons -->
+            <div class="mt-16 max-w-4xl mx-auto">
+                <h3 class="text-center text-xl font-medium text-gray-400 mb-10">Technologies & Tools</h3>
+                <div class="grid grid-cols-4 md:grid-cols-8 gap-6 text-center">
+                    <div class="tech-icon"><i class="fab fa-windows text-4xl mb-2"></i><p class="text-xs">Windows</p></div>
+                    <div class="tech-icon"><i class="fab fa-microsoft text-4xl mb-2"></i><p class="text-xs">M365</p></div>
+                    <div class="tech-icon"><i class="fas fa-shield-alt text-4xl mb-2"></i><p class="text-xs">Entra ID</p></div>
+                    <div class="tech-icon"><i class="fab fa-python text-4xl mb-2"></i><p class="text-xs">Python</p></div>
+                    <div class="tech-icon"><i class="fas fa-terminal text-4xl mb-2"></i><p class="text-xs">Kali</p></div>
+                    <div class="tech-icon"><i class="fas fa-network-wired text-4xl mb-2"></i><p class="text-xs">Networking</p></div>
+                    <div class="tech-icon"><i class="fab fa-html5 text-4xl mb-2"></i><p class="text-xs">HTML/JS</p></div>
+                    <div class="tech-icon"><i class="fas fa-database text-4xl mb-2"></i><p class="text-xs">SQL</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
-           
+    <!-- Education -->
+    <section id="education" class="py-24 bg-[#0d0d0d]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-title">Education</h2>
+            
             <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <h3 class="text-2xl font-bold text-blue-600">Diploma in Information Technology</h3>
-                    <p class="text-gray-600">Central University of Technology • 2024</p>
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20 flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-2xl shrink-0">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-yellow-400">Diploma in Information Technology</h3>
+                        <p class="text-gray-400 mt-1">Central University of Technology</p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <h3 class="text-2xl font-bold text-blue-600">Matric Certificate</h3>
-                    <p class="text-gray-600">Penryn College</p>
+                <div class="card-3d bg-[#1a1a1a] rounded-2xl p-8 border border-yellow-500/20 flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-2xl shrink-0">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-yellow-400">Matric Certificate</h3>
+                        <p class="text-gray-400 mt-1">Penryn College</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-           
-            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 text-gray-800">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 text-blue-600">Contact Information</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Phone</p>
-                                    <p>068 588 1450</p>
-                                </div>
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-black relative">
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 50% 50%, #FACC15 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-title">Get In Touch</h2>
+
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <!-- Info -->
+                <div class="space-y-8">
+                    <p class="text-gray-400 text-lg">
+                        Looking for an IT Support or Cybersecurity role? Let’s connect.
+                    </p>
+                    
+                    <div class="space-y-5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+                                <i class="fas fa-phone"></i>
                             </div>
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Email</p>
-                                    <p>njabulo199926@gmail.com</p>
-                                </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <p class="font-medium">068 588 1450</p>
                             </div>
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <p class="font-semibold">Location</p>
-                                    <p>South Africa</p>
-                                </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <p class="font-medium">njabulo199926@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-yellow-500/10 flex items-center justify-center text-yellow-400">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Location</p>
+                                <p class="font-medium">South Africa</p>
                             </div>
                         </div>
                     </div>
-                   
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 text-blue-600">Send Me a Message</h3>
-                        <form id="contactForm" action="https://formspree.io/f/mjkpajrb" method="POST" class="space-y-4">
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="name">Name</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="email">Email</label>
-                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2" for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
                 </div>
+
+                <!-- Form -->
+                <form id="contactForm" action="https://formspree.io/f/mjkpajrb" method="POST" class="space-y-5">
+                    <div>
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="w-full bg-[#1a1a1a] border border-yellow-500/30 rounded-xl px-5 py-3 focus:outline-none focus:border-yellow-400 transition">
+                    </div>
+                    <div>
+                        <input type="email" name="email" placeholder="Your Email" required
+                            class="w-full bg-[#1a1a1a] border border-yellow-500/30 rounded-xl px-5 py-3 focus:outline-none focus:border-yellow-400 transition">
+                    </div>
+                    <div>
+                        <textarea name="message" rows="5" placeholder="Your Message" required
+                            class="w-full bg-[#1a1a1a] border border-yellow-500/30 rounded-xl px-5 py-3 focus:outline-none focus:border-yellow-400 transition resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-yellow w-full py-3 rounded-xl font-semibold">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2026 Njabulo Khumalo. All Rights Reserved.</p>
-            <p class="mt-2 text-gray-400">IT Support • Cybersecurity • Technical Excellence</p>
+    <footer class="bg-[#0a0a0a] border-t border-yellow-500/10 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-orbitron text-yellow-400 text-lg mb-2">NJABULO KHUMALO</p>
+            <p class="text-gray-500 text-sm">IT Support • Cybersecurity • Technical Excellence</p>
+            <p class="text-gray-600 text-xs mt-4">© 2026 All Rights Reserved</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.add('visible');
-            });
-           
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                setTimeout(() => bar.style.width = width + '%', 500);
-            });
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
         });
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        // Animate skill bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.width + '%';
+                    });
+                }
             });
-        });
+        }, { threshold: 0.3 });
 
-        // Form handling
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', async function (e) {
+        document.querySelectorAll('#skills .card-3d').forEach(card => observer.observe(card));
+
+        // Form
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const formData = new FormData(form);
+            const formData = new FormData(this);
             try {
-                const response = await fetch(form.action, {
-                    method: form.method,
+                const res = await fetch(this.action, {
+                    method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
-                if (response.ok) {
-                    form.reset();
-                    alert("Thank you! Your message has been sent.");
+                if (res.ok) {
+                    this.reset();
+                    alert('Thank you! Your message has been sent.');
                 } else {
-                    alert("Something went wrong. Please try again.");
+                    alert('Something went wrong. Please try again.');
                 }
-            } catch (error) {
-                alert("Network error. Please check your connection.");
+            } catch {
+                alert('Network error. Please check your connection.');
             }
         });
     </script>
